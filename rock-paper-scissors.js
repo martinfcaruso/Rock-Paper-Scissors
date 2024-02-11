@@ -15,45 +15,80 @@ function getComputerChoice (){
     return choice;
 }
 
-console.log(getComputerChoice())
-
 function playRound(playerSelection, computerSelection){
     let playerChoice = playerSelection.toLowerCase()
+    console.log(playerChoice)
+    console.log(computerSelection)
     if (playerChoice === "rock"){
         if (computerSelection === "scissors"){
-            return "You win! Rock beats scissors"
+            console.log("You win! Rock beats scissors")
+            return 1
         }
         else if (computerSelection === "paper"){
-            return "You lose! Paper beats rock"
+            console.log("You lose! Paper beats rock")
+            return 2
         }
         else {
-                return "Draw!"
+                console.log("Draw!")
+                return 0
             }
         }
     else if (playerChoice === "paper"){
         if (computerSelection === "rock"){
-            return "You win! Paper beats rock"
+            console.log("You win! Paper beats rock")
+            return 1 
         }
         else if (computerSelection === "scissors"){
-            return "You lose! Scissors beats paper"
+            console.log("You lose! Scissors beats paper")
+            return 2
         }
         else {
-            return "Draw!"
+            console.log("Draw!")
+            return 0
         }
     }
     else {
         if (playerChoice === "scissors"){
             if (computerSelection === "paper"){
-                return "You win! Scissors beat paper"
+                console.log("You win! Scissors beat paper")
+                return 1
             }
             else if (computerSelection === "rock"){
-                return "You lose! Rock beats scissors"
+                console.log("You lose! Rock beats scissors")
+                return 2
             }
             else {
-                return "Draw!"
+                console.log("Draw!")
+                return 0
             }
         }
     }
 }
+const playerChoice = prompt("Choose Rock, paper or scissors")
+const computerSelection = getComputerChoice()
 
-console.log(playRound())
+
+console.log(playRound(playerChoice, computerSelection))
+
+function playGame(){
+    let playerPoints = 0;
+    let computerPoints = 0;
+    for (let i = 0; i < 5; i++){
+        if (playRound === 1){
+            playerPoints++
+        }
+        else if (playRound === 2){
+            computerPoints++
+        }
+    }
+    console.log(playerPoints)
+    console.log(computerPoints)
+    if (playerPoints > computerPoints){
+        return "You win the game!"
+    }
+    else {
+        return "You lose the game!"
+    }
+}
+
+console.log(playGame())
