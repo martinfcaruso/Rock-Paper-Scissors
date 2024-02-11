@@ -15,8 +15,11 @@ function getComputerChoice (){
     return choice;
 }
 
-function playRound(playerSelection, computerSelection){
-    let playerChoice = playerSelection.toLowerCase()
+function getPlayerChoice(){
+    return prompt("Choose rock, paper or scissors").toLowerCase()
+}
+
+function playRound(playerChoice, computerSelection){
     console.log(`${playerChoice}!`)
     console.log(`${computerSelection}!`)
     if (playerChoice === "rock"){
@@ -64,19 +67,21 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
-const playerChoice = prompt("Choose Rock, paper or scissors")
-const computerSelection = getComputerChoice()
-const round = playRound(playerChoice, computerSelection)
+
+//const playerChoice = prompt("Choose Rock, paper or scissors")
+//const computerSelection = getComputerChoice()
+//const round = playRound(getPlayerChoice(), getComputerChoice())
 //console.log(playRound(playerChoice, computerSelection))
 
 function playGame(){
     let playerPoints = 0;
     let computerPoints = 0;
-    for (let i = 0; i < 2; i++){
+    for (let i = 0; i < 5; i++){
+        let round = playRound(getPlayerChoice(), getComputerChoice())
         if (round === 1){
             playerPoints++
         }
-        else if (round === 2){
+        if (round === 2){
             computerPoints++
         }
     }
