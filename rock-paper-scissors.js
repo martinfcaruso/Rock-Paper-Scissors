@@ -17,8 +17,8 @@ function getComputerChoice (){
 
 function playRound(playerSelection, computerSelection){
     let playerChoice = playerSelection.toLowerCase()
-    console.log(playerChoice)
-    console.log(computerSelection)
+    console.log(`${playerChoice}!`)
+    console.log(`${computerSelection}!`)
     if (playerChoice === "rock"){
         if (computerSelection === "scissors"){
             console.log("You win! Rock beats scissors")
@@ -66,18 +66,17 @@ function playRound(playerSelection, computerSelection){
 }
 const playerChoice = prompt("Choose Rock, paper or scissors")
 const computerSelection = getComputerChoice()
-
-
-console.log(playRound(playerChoice, computerSelection))
+const round = playRound(playerChoice, computerSelection)
+//console.log(playRound(playerChoice, computerSelection))
 
 function playGame(){
     let playerPoints = 0;
     let computerPoints = 0;
-    for (let i = 0; i < 5; i++){
-        if (playRound === 1){
+    for (let i = 0; i < 2; i++){
+        if (round === 1){
             playerPoints++
         }
-        else if (playRound === 2){
+        else if (round === 2){
             computerPoints++
         }
     }
@@ -85,6 +84,9 @@ function playGame(){
     console.log(computerPoints)
     if (playerPoints > computerPoints){
         return "You win the game!"
+    }
+    else if (playerPoints === computerPoints){
+        return "Tie!"
     }
     else {
         return "You lose the game!"
